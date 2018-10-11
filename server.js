@@ -12,7 +12,7 @@ if(process.env.NODE_ENV === "production"){
 }
 
 //add routes
-//app.use(routes);
+app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/perfectDB");
 

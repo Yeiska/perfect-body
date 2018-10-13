@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
-var Workoutschema = new Schema({
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const Workoutschema = new Schema({
     workout: { type: String, required: true, unique: true },
     routine: { type: String, required: true },
     sets: { type: String, required: true },

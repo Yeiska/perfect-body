@@ -1,13 +1,5 @@
-const mongoose = require("mongoose");
 const db = require("../models");
-
-// This file empties the Workout collection and inserts the workouts below
-
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/workout"
-);
-
+seedDB = () => {
 const workoutSeed = [
     {
         workout: "Pull workout 1",
@@ -93,7 +85,7 @@ const workoutSeed = [
 
 // emptying previous entries and reseeding to ensure no duplicates. 
 db.Workout
-.remove({})
+.find({})
 .then(() => db.Workout.collection.insertMany(workoutSeed))
 .then( data => {
     console.log(data.result.n + "Workouts inserted");
@@ -103,3 +95,6 @@ db.Workout
     console.log(err);
     process.exit(1);
 });
+};
+
+module.exports = seedDB;

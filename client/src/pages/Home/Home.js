@@ -11,16 +11,16 @@ class Home extends Component {
 
     componentDidMount() {
         this.loadWorkouts();
-        console.log()
+        console.log(this.state.workouts);
     }
 
     loadWorkouts = () => {
         API.getWorkouts()
         .then(res =>
-            this.setState({ workout: res.data })
+            this.setState({ workouts: res.data })
             )
             .catch(err => console.log(err));
-            console.log(this.state.workout);
+            console.log(this.state.workouts);
     };
 
 

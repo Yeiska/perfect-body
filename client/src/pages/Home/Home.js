@@ -11,16 +11,16 @@ class Home extends Component {
 
     componentDidMount() {
         this.loadWorkouts();
-        console.log(this.state.workouts);
     }
 
     loadWorkouts = () => {
         API.getWorkouts()
-        .then(res =>
+        .then(res => {
             this.setState({ workouts: res.data })
-            )
+            console.log(res.data);
+            console.log(this.state.workouts[0].routine);
+        })
             .catch(err => console.log(err));
-            console.log(this.state.workouts);
     };
 
 
@@ -28,10 +28,15 @@ class Home extends Component {
         return (
             <div>
                 <Nav />
-                <Modal 
-                    workout={this.state.workout} 
-                    routine={this.state.routine} 
+                {this.state.workouts.map(workout => (
+                <Modal
+                    key={workout.workout}
+                    workout={workout.workout}
+                    routine={workout.routine}
+                    sets={workout.sets}
+                    reps={workout.reps}
                 />
+            ))}
             </div>
         );
     }

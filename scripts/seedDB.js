@@ -84,9 +84,7 @@ const workoutSeed = [
 ];
 
 // emptying previous entries and reseeding to ensure no duplicates. 
-db.Workout
-.find({})
-.then(() => db.Workout.collection.insertMany(workoutSeed))
+db.Workout.collection.insertMany(workoutSeed)
 .then( data => {
     console.log(data.result.n + "Workouts inserted");
     process.exit(0);

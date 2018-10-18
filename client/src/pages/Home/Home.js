@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import { Modals, ModalListItem } from "../../components/Modals";
-// import Header from "../../components/Header";
+import Header from "../../components/Header";
 import API from "../../utils/API";
 
 class Home extends Component {
@@ -40,15 +40,17 @@ class Home extends Component {
         return (
             <div>
                 <Nav />
-                {/* <Header /> */}
+                <Header />
                 <div className="grid-container fluid">
+                <div className="grid-x workouts">
+                
                     {this.state.workouts.map(workout => {
                         console.log(workout)
                         const routines = workout.routine.split(",");
                         const sets = workout.sets.split(",");
                         const reps = workout.reps.split(",");
                         return (
-
+                            <div className="small-12 large-6 cell">
                             <Modals
                                 key={workout._id}
                                 workout={workout.workout}
@@ -63,8 +65,10 @@ class Home extends Component {
                                     )
                                 })}
                             </Modals>
+                            </div>
                         );
                     })}
+                    </div>
                 </div>
             </div>
         );

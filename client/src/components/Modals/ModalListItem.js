@@ -25,7 +25,7 @@ export const ModalListItem = props => (
                 </div>
                 <div className="cell small-4 cell large-4">
                     <label>
-                    <strong>Weight Used (If Necessary):</strong>
+                    <strong>Weight Used:</strong>
                     <input className="input" type="text" />
                     </label>
                 </div>

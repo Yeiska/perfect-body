@@ -4,18 +4,51 @@ import API from "../../utils/API";
 
 const Navbar = props => 
     <div className="top-bar">
-        <div className="top-bar-left">
-            <li className="menu-text">Perfect Body</li>
-        </div>
-        <div className="top-bar-right">
-            <li><a href="#0">Workouts</a></li>
-            <li><a href="#0">Nutrition</a></li>
-            <li><a href="#0">User</a></li>
-            <li><a href="/auth/login">Sign in | Sign up</a></li>
-            <Link to={"/auth/login"}><button className="btn btn-outline-light mr-2 my-sm-0">Sign In</button></Link>
-            <button className="btn btn-outline-light mr-2 my-sm-0" onClick={API.logout}>Log Out</button>
-      <button className="btn btn-outline-light mr-2 my-sm-0" type="submit">Register</button>
-        </div>
-    </div>
+    <div className="grid-x navGrid">
+    
+              <div className="small-4 cell">
+                <div className="top-bar-left">
+                
+                    <ul>
+                    <div className="grid-x">
+                        <li className="large-4 cell">
+                            <a href="#0">Workouts</a>
+                        </li>
+                        <li className="large-4 cell">
+                            <a href="#0">Nutrition</a>
+                        </li>
+                        <li className="large-4 cell">
+                            <a href="#0">Profile</a>
+                        </li>
+                        </div>
+                    </ul>
+                
+                </div>
+                </div>
+                <div className="small-4 cell">
+                <div className="top-bar-center">
+                    <ul>
+                        <li className="name">
+                            <h1 className="title">Perfect Body</h1>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <div className="small-4 cell">
+                <div className="top-bar-right">
+                    <ul>
+                        <li className="signIn">
+                            <a href="#0"className="button" data-open="signInReveal">Sign in </a>
+                                <div className="reveal" id="signInReveal" data-reveal>
+                                    <h2>Sign Me In Baby!!</h2>
+                                </div>
+                            |<a href="#0"> Sign up</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+        
 
 export default Navbar;

@@ -1,0 +1,73 @@
+/* div.workouts {
+    width: 50%;
+    float: left;
+}
+
+.grid-container {
+    background-color: aquamarine
+}
+
+header {
+    background-image: url(http://gallatinfitness.com/wp-content/uploads/2016/04/fitness.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 20px;
+    border: 2px solid black;
+}
+
+.input {
+    width: 5rem;
+}
+
+form {
+    display: flex;
+}
+
+label {
+    width: 7rem;
+}
+
+label.sets {
+    padding-top: 25px;
+}
+
+label.reps {
+    padding-top: 25px;
+}
+*/
+.top-bar {
+    background-color: #00802b;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li.signIn {
+    text-align: center;
+}
+
+div.navGrid {
+    width: 100%;
+}
+
+h1.title {
+    text-align: center;
+}
+
+header {
+    background-image: url(http://gallatinfitness.com/wp-content/uploads/2016/04/fitness.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 13rem;
+    /* padding-bottom: 3rem; */
+    border: 2px solid black;
+}
+
+div.workouts {
+    padding-top: 2rem;
+}
+
+h2.name{
+    text-align: center;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import { Modals, ModalListItem } from "../../components/Modals";
-import Header from "../../components/Header";
+import { Header } from "../../components/Header";
 import API from "../../utils/API";
 
 class Home extends Component {

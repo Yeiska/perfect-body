@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 
+import Nutrition from "./pages/Nutrition";
 
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
           <Route exact path="auth/login/" component={Login} />
           <Route exact path="auth/logout/"/>
           <Route exact path="/" component={Home} />
+          <Route exact path="/Nutrition" component={Nutrition} />
         </Switch>
       </div>
     </Router>

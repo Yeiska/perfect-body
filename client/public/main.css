@@ -36,33 +36,52 @@ label.reps {
 }
 */
 .top-bar {
-    background-color: #00802b;
+    background-color: #66d9ff;
 }
 
 ul {
     list-style-type: none;
 }
 
-li.signIn {
-    text-align: center;
+li.logOut {
+    text-align: right;
+    height: 100%;
+    background-color: #66d9ff;
 }
 
 div.navGrid {
     width: 100%;
 }
 
+div.main-menu {
+    background-color: #66d9ff;
+}
+
 h1.title {
     text-align: center;
+    color: black;
+    background-color: #66d9ff;
+}
+
+button.button.success {
+    background-color: black;
+    color: #66d9ff;
 }
 
 header {
     background-image: url(http://gallatinfitness.com/wp-content/uploads/2016/04/fitness.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     padding: 13rem;
-    /* padding-bottom: 3rem; */
-    border: 2px solid black;
 }
+
+header.Nutrition {
+    background-image: url(https://prod-discovery.edx-cdn.org/media/course/image/c2f0c9cd-6577-4f38-8a31-56c8dd1cf2a4-01e4a5b35857.small.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 13rem;
+}
+
 
 div.workouts {
     padding-top: 2rem;

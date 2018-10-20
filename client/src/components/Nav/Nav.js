@@ -2,53 +2,55 @@ import React from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
-const Navbar = props => 
+const Navbar = props =>
     <div className="top-bar">
-    <div className="grid-x navGrid">
-    
-              <div className="small-4 cell">
-                <div className="top-bar-left">
-                
+        <div className="grid-x navGrid" data-equalizer>
+
+            <div className="small-4 cell">
+                <div className="top-bar-left" data-equalizer-watch>
+
                     <ul>
-                    <div className="grid-x">
-                        <li className="large-4 cell">
-                            <a href="#0">Workouts</a>
-                        </li>
-                        <li className="large-4 cell">
-                            <a href="#0">Nutrition</a>
-                        </li>
-                        <li className="large-4 cell">
-                            <a href="#0">Profile</a>
-                        </li>
+                        <div className="grid-x main-menu">
+                            <li className="large-4 cell">
+                                <Link to={"/"}>
+                                    <a href="#0">Workouts</a>
+                                </Link>
+                            </li>
+                            <li className="large-4 cell">
+                                <Link to={"/Nutrition"}>
+                                    <a href="#0">Nutrition</a>
+                                </Link>
+                            </li>
+                            <li className="large-4 cell">
+                                <a href="#0">Profile</a>
+                            </li>
                         </div>
                     </ul>
-                
+
                 </div>
-                </div>
-                <div className="small-4 cell">
-                <div className="top-bar-center">
+            </div>
+            <div className="small-4 cell">
+                <div className="top-bar-center" data-equalizer-watch>
                     <ul>
                         <li className="name">
-                            <h1 className="title">Perfect Body</h1>
+                            <Link to={"/"}>
+                                <h1 className="title">Perfect Body</h1>
+                            </Link>
                         </li>
                     </ul>
                 </div>
-                </div>
-                <div className="small-4 cell">
-                <div className="top-bar-right">
+            </div>
+            <div className="small-4 cell">
+                <div className="top-bar-right" data-equalizer-watch>
                     <ul>
-                        <li className="signIn">
-                            <a href="#0"className="button" data-open="signInReveal">Sign in </a>
-                                <div className="reveal" id="signInReveal" data-reveal>
-                                    <h2>Sign Me In Baby!!</h2>
-                                </div>
-                            |<a href="#0"> Sign up</a>
+                        <li className="logOut">
+                            <button className="button success">Logout</button>
                         </li>
                     </ul>
                 </div>
-                </div>
             </div>
-            </div>
-        
+        </div>
+    </div>
+
 
 export default Navbar;

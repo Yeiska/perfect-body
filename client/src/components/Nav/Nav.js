@@ -13,16 +13,16 @@ const Navbar = props =>
                         <div className="grid-x main-menu">
                             <li className="large-4 cell">
                                 <Link to={"/"}>
-                                    <a href="#0">Workouts</a>
+                                    <button className="button success"><a href="#0">Workouts</a></button>
                                 </Link>
                             </li>
                             <li className="large-4 cell">
                                 <Link to={"/Nutrition"}>
-                                    <a href="#0">Nutrition</a>
+                                    <button className="button success"><a href="#0">Nutrition</a></button>
                                 </Link>
                             </li>
                             <li className="large-4 cell">
-                                <a href="#0">Profile</a>
+                                <button className="button success"><a href="#0">Profile</a></button>
                             </li>
                         </div>
                     </ul>

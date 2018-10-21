@@ -83,6 +83,26 @@ a {
     color: #66d9ff;
 }
 
+h1.loginTitle {
+    text-align: center;
+}
+
+div.loginCell {
+    width: 50%;
+}
+
+button.signUp {
+    margin: 1rem;
+}
+
+button.logIn {
+    margin: 1rem;
+}
+
+div.loginGrid {
+    margin-top: 3rem;
+}
+
 header {
     background-image: url(http://gallatinfitness.com/wp-content/uploads/2016/04/fitness.png);
     background-repeat: no-repeat;

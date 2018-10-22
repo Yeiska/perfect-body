@@ -1,5 +1,5 @@
 import React from "react";
-
+// import { Link } from "react-router-dom";
 
 const LoginForm = props =>
     <fieldset className="fieldset">
@@ -19,8 +19,11 @@ const LoginForm = props =>
                     </label>
                     <p className="help-text">Enter your Password here. (Must be at least 8 charecters)</p>
                     <div className="cell large-offset-3">
+                    
                         <button className="button success signUp" onClick={props.onSubmit}>Sign Up</button>
+                   
                         <button className="button success logIn" onClick={props.onSubmit}>Log In</button>
+                    
                     </div>
                 </div>
             </div>

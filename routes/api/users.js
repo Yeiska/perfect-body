@@ -8,17 +8,17 @@ const saltRounds = 10;
 
 //register: storing name, email and password and redirecting to home page after signup
 router.post('/user/create', function (req, res) {
-  bcrypt.hash(req.body.passwordsignup, saltRounds, function (err,   hash) {
+  //bcrypt.hash(req.body.passwordsignup, saltRounds, function (err,   hash) {
  db.User.create({
-   name: req.body.usernamesignup,
-   email: req.body.emailsignup,
-   password: hash
+   username: req.body.username,
+   password: req.body.password
    }).then(function(data) {
     if (data) {
+      console.log(data);
     res.redirect('/home');
     }
-  });
- });
+  }).catch(err => console.log(err));
+ //});
 });
 
 

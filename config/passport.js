@@ -16,7 +16,7 @@ module.exports = function(passport){
         if(user){
           return done(null, false);
         }else{
-          var constUser = new User();
+          const constUser = new User();
           newUser.username = email;
           newUser.password = newUser.generateHash(password);
 

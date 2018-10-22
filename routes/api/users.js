@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-var db = require('../models');
+var db = require('../../models');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
 
 //register: storing name, email and password and redirecting to home page after signup
-app.post('/user/create', function (req, res) {
+router.post('/user/create', function (req, res) {
   bcrypt.hash(req.body.passwordsignup, saltRounds, function (err,   hash) {
  db.User.create({
    name: req.body.usernamesignup,
@@ -24,7 +24,7 @@ app.post('/user/create', function (req, res) {
 
 
 //login page: storing and comparing email and password,and redirecting to home page after login
-app.post('/user', function (req, res) {
+router.post('/user', function (req, res) {
   db.User.findOne({
        where: {
            email: req.body.email

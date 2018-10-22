@@ -10,17 +10,17 @@ const LoginForm = props =>
                 <div className="grid-x">
                     <label className="cell">
                         Username:
-                        <input type="text" placeholder="PerfectBody@PerfectBody.com" name="username" />
+                        <input type="text" placeholder="PerfectBody@PerfectBody.com" name="username" onChange={props.onChange} />
                     </label>
                     <p className="help-text">Enter your email as your Username to sign in</p>
                     <label className="cell">
                         Password:
-                        <input type="password" placeholder="PerfectBody24@" name="password" />
+                        <input type="password" placeholder="PerfectBody24@" name="password" onChange={props.onChange} />
                     </label>
                     <p className="help-text">Enter your Password here. (Must be at least 8 charecters)</p>
                     <div className="cell large-offset-3">
-                        <button className="button success signUp">Sign Up</button>
-                        <button className="button success logIn">Log In</button>
+                        <button className="button success signUp" onClick={props.onSubmit}>Sign Up</button>
+                        <button className="button success logIn" onClick={props.onSubmit}>Log In</button>
                     </div>
                 </div>
             </div>

@@ -9,8 +9,11 @@ export default {
         return axios.post("/api/Workouts", WorkoutsData);
     },
     //Login with Google
-    login: function () {
-        return axios.get("/api/auth-routes/auth/google");
+    signUp: function () {
+        return axios.post("/api/users/user/create");
+    },
+    logIn: function () {
+        return axios.post("/api/users/user");
     },
     logout: function () {
         return axios.get("/api/auth-routes/auth/logout");

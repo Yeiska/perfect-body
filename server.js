@@ -4,10 +4,10 @@ const routes = require("./routes");
 const app = express();
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const User = require("./user.js");
+// const User = require("./user.js");
 
-//const seedDB = require("./scripts/seedDB");
-//const db = require("./models");
+const seedDB = require("./scripts/seedDB");
+// const db = require("./models");
 const PORT = process.env.PORT || 3001;
 
 // Configure middleware
@@ -42,7 +42,7 @@ mongoose.connection.once('open', function() {
 });
   
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/userdb", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/userdb", { useNewUrlParser: true });
 
 
 

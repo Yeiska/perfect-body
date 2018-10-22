@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import API from "../../utils/API";
 
 const Navbar = props =>
     <div className="top-bar">
@@ -12,7 +11,7 @@ const Navbar = props =>
                     <ul>
                         <div className="grid-x main-menu">
                             <li className="large-4 cell">
-                                <Link to={"/"}>
+                                <Link to={"/Home"}>
                                     <button className="button success"><a href="#0">Workouts</a></button>
                                 </Link>
                             </li>
@@ -33,7 +32,7 @@ const Navbar = props =>
                 <div className="top-bar-center" data-equalizer-watch>
                     <ul>
                         <li className="name">
-                            <Link to={"/"}>
+                            <Link to={"/Home"}>
                                 <h1 className="title">Perfect Body</h1>
                             </Link>
                         </li>

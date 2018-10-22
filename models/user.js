@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const UserSchema = new Schema({
-    username: { type: String, trim: true, required: true },
+    username: { type: String, trim: true, unique: true, match: [/.+@.+\..+/, "Please enter a valid e-mail address"], required: true },
     password: {
         type: String,
         trim: true,
@@ -16,11 +16,11 @@ const UserSchema = new Schema({
             "Password should be longer."
         ]
     },
-    email: {
-        type: String,
-        unique: true,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-    },
+    // // email: {
+    // //     type: String,
+    // //     unique: true,
+    // //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    // },
     userCreated: {
         type: Date,
         default: Date.now

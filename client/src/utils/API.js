@@ -9,8 +9,8 @@ export default {
         return axios.post("/api/Workouts", WorkoutsData);
     },
     //Login with Google
-    signUp: function () {
-        return axios.post("/api/users/user/create");
+    signUp: function (userData) {
+        return axios.post("/api/users/user/create", userData);
     },
     logIn: function () {
         return axios.post("/api/users/user");

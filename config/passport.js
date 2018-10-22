@@ -3,8 +3,8 @@ const User = require("../app/models/user.js");
 module.exports = function(passport){
 
   passport.use("signup, newStrategy"({
-    usernameField: "email",
-    passwordField: "password",
+    username: "email",
+    password: "password",
     passReqToCallback: true
   })),
 

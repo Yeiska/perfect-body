@@ -15,12 +15,7 @@ const UserSchema = new Schema({
             },
             "Password should be longer."
         ]
-    },
-    // // email: {
-    // //     type: String,
-    // //     unique: true,
-    // //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-    // },
+    },    
     userCreated: {
         type: Date,
         default: Date.now

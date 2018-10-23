@@ -15,7 +15,7 @@ router.post('/user/create', function (req, res) {
    }).then(function(data) {
     if (data) {
       console.log(data);
-    res.redirect('/home');
+    res.send('/Home');
     }
   }).catch(err => console.log(err));
  //});
@@ -35,7 +35,7 @@ router.post('/user', function (req, res) {
       } else {
 bcrypt.compare(req.body.password, user.password, function (err, result) {
      if (result == true) {
-         res.redirect('/home');
+         res.send('/Home');
      } else {
       res.send('Incorrect password');
       res.redirect('/');
@@ -68,8 +68,8 @@ bcrypt.compare(req.body.password, user.password, function (err, result) {
 	});
 
 	/* GET Home Page */
-	router.get('/home', function(req, res){
-		res.render('home', { user: req.user });
+	router.get('/Home', function(req, res){
+		res.render('Home', { user: req.user });
 	});
 
 	/* Handle Logout */

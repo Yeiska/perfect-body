@@ -10,7 +10,7 @@ export default {
     },
     //Login with Google
     signUp: function (userData) {
-        return axios.post("/api/users/user/create", userData);
+        return axios.post("/api/users/user/create", userData)
     },
     logIn: function () {
         return axios.post("/api/users/user");

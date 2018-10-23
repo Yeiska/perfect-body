@@ -15,7 +15,7 @@ router.post('/user/create', function (req, res) {
    }).then(function(data) {
     if (data) {
       console.log(data);
-    res.send('/Home');
+    res.json({status: 200});
     }
   }).catch(err => console.log(err));
  //});

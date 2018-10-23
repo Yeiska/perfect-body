@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 import LoginForm from "../../components/LoginForm";
 import API from "../../utils/API";
 
@@ -7,7 +7,8 @@ class Login extends Component {
 
   state = {
     username: "",
-    password: ""
+    password: "",
+    loggedIn: false
   };
 
   handleInputChange = event => {
@@ -15,7 +16,7 @@ class Login extends Component {
     this.setState({
       [name]: value
     }, function () {
-      console.log(this.state);
+      //console.log(this.state);
     });
   };
 
@@ -25,11 +26,11 @@ class Login extends Component {
     API.signUp({
       username: this.state.username,
       password: this.state.password
+    }).then(res => {
+      console.log("hello");
+      this.setState({ loggedIn: true })
     })
     .catch(err => console.log(err));
-
-    // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
-    alert(`Hello ${this.state.username}`);
     
   };
 
@@ -39,10 +40,14 @@ class Login extends Component {
       <div className="grid-container">
         <div className="grid-x loginGrid">
           <div className="cell small-offset-3 loginCell">
+          {!this.state.loggedIn ? 
             <LoginForm 
             onChange={this.handleInputChange}
             onSubmit={this.handleFormSubmit}
             />
+            :
+            <Redirect to="/Home" />
+          }
           </div>
         </div>
       </div>

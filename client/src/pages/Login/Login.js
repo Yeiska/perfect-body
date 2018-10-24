@@ -10,7 +10,8 @@ class Login extends Component {
     password: "",
     loggedIn: false,
     invalid: false,
-    incorrect: false
+    incorrect: false,
+    signUp: false
   };
 
   handleInputChange = event => {
@@ -30,7 +31,11 @@ class Login extends Component {
       password: this.state.password
     }).then(res => {
       console.log(res);
+      if (res.data.status === 200) {
       this.setState({ loggedIn: true })
+      }else if (res.data.status === 404) {
+        this.setState({ signUp: true })
+      }
     })
     .catch(err => console.log(err));
     
@@ -70,8 +75,8 @@ class Login extends Component {
             :
             <Redirect to="/Home" />
           }
-          {this.state.incorrect ?
-          <h3>The password you entered is incorrect. Try again!</h3>
+          {this.state.signUp ?
+          <h3>This user already exists. Try logging in or creating a new user!</h3>
           :
           <p></p>
           }

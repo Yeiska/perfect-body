@@ -43,7 +43,7 @@ const Navbar = props =>
                 <div className="top-bar-right" data-equalizer-watch>
                     <ul>
                         <li className="logOut">
-                            <button className="button success">Logout</button>
+                            <button className="button success"><a href="/">Logout</a></button>
                         </li>
                     </ul>
                 </div>

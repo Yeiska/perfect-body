@@ -43,10 +43,6 @@ mongoose.connection.once('open', function() {
         }
     });
 });
-  
-// Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/userdb", { useNewUrlParser: true });
-
 
 
 //Start the API server

@@ -3,7 +3,7 @@ userdb = () => {
 const user = [
   {
     username : "username",
-    password: "password"
+    password: hash
   }
 
 ];

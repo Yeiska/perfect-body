@@ -15,25 +15,20 @@ const UserSchema = new Schema({
             },
             "Password should be longer."
         ]
-    },
-    // // email: {
-    // //     type: String,
-    // //     unique: true,
-    // //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-    // },
+    },    
     userCreated: {
         type: Date,
         default: Date.now
       }
 });
 
-UserSchema.method.generateHash = function(password){
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(9));
-};
+// UserSchema.method.generateHash = function(password){
+//     return bcrypt.hashSync(password, bcrypt.genSaltSync(9));
+// };
 
-UserSchema.method.validPassword = function(password){
-    return bcrypt.compareSync(password, this.password);
-};
+// UserSchema.method.validPassword = function(password){
+//     return bcrypt.compareSync(password, this.password);
+// };
 
 // This creates our model from the above schema, using mongoose's model method
 var User = mongoose.model("User", UserSchema);

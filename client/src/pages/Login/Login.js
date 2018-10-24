@@ -80,8 +80,13 @@ class Login extends Component {
           :
           <p></p>
           }
+           {this.state.incorrect ?
+            <h3>The password you entered is incorrect. Try Again!</h3>
+            :
+            <p></p>
+          }
           {this.state.invalid ?
-            <h3>The username or password you entered is invalid. Try Again!</h3>
+            <h3>The username you entered is invalid. Try signing up!</h3>
             :
             <p></p>
           }

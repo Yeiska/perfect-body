@@ -49,18 +49,18 @@ router.post('/user/create', function (req, res) {
 //login page: storing and comparing email and password,and redirecting to home page after login
 router.post('/login', function (req, res) {
   db.User.findOne({
-    where: {
-      email: req.body.email
-    }
-  }).then(function (user) {
+      username: req.body.username
+  }, console.log(req.body.username)).then(function (user) {
       if (!user) {
         res.json({status: 404});
+        console.log("no user");
       } else {
 bcrypt.compare(req.body.password, user.password, function (err, result) {
      if (result == true) {
          res.json({status: 200});
      } else {
       res.json({status: 401});
+      console.log("incorrect password");
      }
    });
   }

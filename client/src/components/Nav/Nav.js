@@ -12,12 +12,12 @@ const Navbar = props =>
                         <div className="grid-x main-menu">
                             <li className="large-4 cell">
                                 <Link to={"/Home"}>
-                                    <button className="button success"><a href="#0">Workouts</a></button>
+                                    <button className="button success">Workouts</button>
                                 </Link>
                             </li>
                             <li className="large-4 cell">
                                 <Link to={"/Nutrition"}>
-                                    <button className="button success"><a href="#0">Nutrition</a></button>
+                                    <button className="button success">Nutrition</button>
                                 </Link>
                             </li>
                             <li className="large-4 cell">

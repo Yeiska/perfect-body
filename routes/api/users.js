@@ -8,6 +8,27 @@ const saltRounds = 10;
 
 //register: storing name, email and password and redirecting to home page after signup
 router.post('/user/create', function (req, res) {
+  //bcrypt.hash(req.body.passwordsignup, saltRounds, function (err,   hash) {
+    db.User.findOne({
+      username: req.body.username
+    }).then(function(user) {
+      console.log(user);
+      if (!user) {
+        db.User.create({
+          username: req.body.username,
+          password: req.body.password
+          }).then(function(data) {
+           if (data) {
+             console.log(data);
+           res.json({status: 200});
+           }
+         }).catch(err => console.log(err));
+      } else {
+        res.json({status: 404});
+      }
+    });
+
+//});
   bcrypt.hash(req.body.password, saltRounds).then( function ( hash) {
  db.User.create({
    username: req.body.username,
@@ -23,12 +44,13 @@ router.post('/user/create', function (req, res) {
 
 
 
+
 //login page: storing and comparing email and password,and redirecting to home page after login
 router.post('/login', function (req, res) {
   db.User.findOne({
-       where: {
-           email: req.body.email
-              }
+    where: {
+      email: req.body.email
+    }
   }).then(function (user) {
       if (!user) {
         res.json({status: 404});
@@ -45,6 +67,30 @@ bcrypt.compare(req.body.password, user.password, function (err, result) {
 });
 
 
+/* Handle Registration POST */
+
+router.post("/signup", function (req, res) {
+  // Create a new user using req.body
+  User.create(req.body)
+    .then(function (dbUser) {
+      // If saved successfully, send the the new User document to the client
+      res.json(dbUser);
+    })
+    .catch(function (err) {
+      // If an error occurs, send the error to the client
+      res.json(err);
+    });
+});
+router.post('/signup', function (req, res) {
+  res.redirect('/home');
+  //failureRedirect: '/signup'
+
+});
+
+/* GET Home Page */
+router.get('/home', function (req, res) {
+  res.render('home', { user: req.user });
+});
 
   /* Handle Registration POST */
   

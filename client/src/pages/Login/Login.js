@@ -27,7 +27,7 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password
     }).then(res => {
-      console.log("hello");
+      console.log(res);
       this.setState({ loggedIn: true })
     })
     .catch(err => console.log(err));

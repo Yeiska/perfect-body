@@ -11,16 +11,11 @@ const UserSchema = new Schema({
         required: "Password is Required",
         validate: [
             function (input) {
-                return input.length >= 6;
+                return input.length >= 8;
             },
             "Password should be longer."
         ]
     },
-    // // email: {
-    // //     type: String,
-    // //     unique: true,
-    // //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-    // },
     userCreated: {
         type: Date,
         default: Date.now

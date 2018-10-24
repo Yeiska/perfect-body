@@ -8,39 +8,40 @@ const saltRounds = 10;
 
 //register: storing name, email and password and redirecting to home page after signup
 router.post('/user/create', function (req, res) {
-  //bcrypt.hash(req.body.passwordsignup, saltRounds, function (err,   hash) {
     db.User.findOne({
       username: req.body.username
     }).then(function(user) {
       console.log(user);
       if (!user) {
-        db.User.create({
-          username: req.body.username,
-          password: req.body.password
-          }).then(function(data) {
-           if (data) {
-             console.log(data);
-           res.json({status: 200});
-           }
-         }).catch(err => console.log(err));
+        bcrypt.hash(req.body.password, saltRounds).then( function ( hash) {
+          db.User.create({
+            username: req.body.username,
+            password: hash
+            }).then(function(data) {
+             if (data) {
+               console.log(data);
+             res.json({status: 200});
+             }
+           }).catch(err => console.log(err));
+          })
       } else {
         res.json({status: 404});
       }
     });
+  });
 
-//});
-  bcrypt.hash(req.body.password, saltRounds).then( function ( hash) {
- db.User.create({
-   username: req.body.username,
-   password: hash
-   }).then(function(data) {
-    if (data) {
-      console.log(data);
-    res.json({status: 200});
-    }
-  }).catch(err => console.log(err));
- });
-});
+//   bcrypt.hash(req.body.password, saltRounds).then( function ( hash) {
+//  db.User.create({
+//    username: req.body.username,
+//    password: hash
+//    }).then(function(data) {
+//     if (data) {
+//       console.log(data);
+//     res.json({status: 200});
+//     }
+//   }).catch(err => console.log(err));
+//  });
+
 
 
 

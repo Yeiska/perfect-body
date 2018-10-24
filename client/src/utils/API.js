@@ -12,8 +12,8 @@ export default {
     signUp: function (userData) {
         return axios.post("/api/users/user/create", userData);
     },
-    logIn: function () {
-        return axios.post("/api/users/user");
+    logIn: function (userData) {
+        return axios.post("/api/users/login", userData);
     },
     logout: function () {
         return axios.get("/api/auth-routes/auth/logout");

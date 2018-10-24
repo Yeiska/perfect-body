@@ -8,7 +8,9 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
-    loggedIn: false
+    loggedIn: false,
+    invalid: false,
+    incorrect: false
   };
 
   handleInputChange = event => {
@@ -34,6 +36,25 @@ class Login extends Component {
     
   };
 
+  handleLogin = event => {
+    event.preventDefault();
+    API.logIn({
+      username: this.state.username,
+      password: this.state.password
+    }).then(res => {
+      console.log(res);
+      if (res.data.status === 200) {
+        this.setState({ loggedIn: true })
+      }else if (res.data.status === 404) {
+        console.log("Invalid username.. Try signing up first");
+        this.setState({ invalid: true })
+      }else if (res.data.status === 401) {
+        console.log("Incorrect Password.. try again!");
+        this.setState({ incorrect: true })
+      }
+    })
+    .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -44,9 +65,20 @@ class Login extends Component {
             <LoginForm 
             onChange={this.handleInputChange}
             onSubmit={this.handleFormSubmit}
+            onLogin={this.handleLogin}
             />
             :
             <Redirect to="/Home" />
+          }
+          {this.state.incorrect ?
+          <h3>The password you entered is incorrect. Try again!</h3>
+          :
+          <p></p>
+          }
+          {this.state.invalid ?
+            <h3>The username or password you entered is invalid. Try Again!</h3>
+            :
+            <p></p>
           }
           </div>
         </div>

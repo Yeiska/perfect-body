@@ -8,39 +8,40 @@ const saltRounds = 10;
 
 //register: storing name, email and password and redirecting to home page after signup
 router.post('/user/create', function (req, res) {
-  //bcrypt.hash(req.body.passwordsignup, saltRounds, function (err,   hash) {
     db.User.findOne({
       username: req.body.username
     }).then(function(user) {
       console.log(user);
       if (!user) {
-        db.User.create({
-          username: req.body.username,
-          password: req.body.password
-          }).then(function(data) {
-           if (data) {
-             console.log(data);
-           res.json({status: 200});
-           }
-         }).catch(err => console.log(err));
+        bcrypt.hash(req.body.password, saltRounds).then( function ( hash) {
+          db.User.create({
+            username: req.body.username,
+            password: hash
+            }).then(function(data) {
+             if (data) {
+               console.log(data);
+             res.json({status: 200});
+             }
+           }).catch(err => console.log(err));
+          })
       } else {
         res.json({status: 404});
       }
     });
+  });
 
-//});
-  bcrypt.hash(req.body.password, saltRounds).then( function ( hash) {
- db.User.create({
-   username: req.body.username,
-   password: hash
-   }).then(function(data) {
-    if (data) {
-      console.log(data);
-    res.json({status: 200});
-    }
-  }).catch(err => console.log(err));
- });
-});
+//   bcrypt.hash(req.body.password, saltRounds).then( function ( hash) {
+//  db.User.create({
+//    username: req.body.username,
+//    password: hash
+//    }).then(function(data) {
+//     if (data) {
+//       console.log(data);
+//     res.json({status: 200});
+//     }
+//   }).catch(err => console.log(err));
+//  });
+
 
 
 
@@ -48,18 +49,18 @@ router.post('/user/create', function (req, res) {
 //login page: storing and comparing email and password,and redirecting to home page after login
 router.post('/login', function (req, res) {
   db.User.findOne({
-    where: {
-      email: req.body.email
-    }
-  }).then(function (user) {
+      username: req.body.username
+  }, console.log(req.body.username)).then(function (user) {
       if (!user) {
         res.json({status: 404});
+        console.log("no user");
       } else {
 bcrypt.compare(req.body.password, user.password, function (err, result) {
      if (result == true) {
          res.json({status: 200});
      } else {
       res.json({status: 401});
+      console.log("incorrect password");
      }
    });
   }

@@ -15,11 +15,7 @@ const UserSchema = new Schema({
             },
             "Password should be longer."
         ]
-<<<<<<< HEAD
-    },
-=======
     },    
->>>>>>> master
     userCreated: {
         type: Date,
         default: Date.now

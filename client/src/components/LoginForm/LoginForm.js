@@ -22,7 +22,7 @@ const LoginForm = props =>
                     
                         <button className="button success signUp" onClick={props.onSubmit}>Sign Up</button>
                    
-                        <button className="button success logIn" onClick={props.onSubmit}>Log In</button>
+                        <button className="button success logIn" onClick={props.onLogin}>Log In</button>
                     
                     </div>
                 </div>

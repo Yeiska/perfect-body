@@ -29,26 +29,26 @@ module.exports = function(passport){
     });
   }
 
-  // passport.use("login, newStrategy"({
-  //   usernameField: "email",
-  //   passwordField: "password",
-  //   passReqToCallback: true
-  // },
+  passport.use("login, newStrategy"({
+    usernameField: "email",
+    passwordField: "password",
+    passReqToCallback: true
+  },
 
-  // function(req, email, passport, done){
-  //   process.nextTick(function(){
-  //     User.findOne({"username" : email}, function(err,user){
-  //       if(err){ 
-  //         return done(err)
-  //       }
-  //       if(user){
-  //         return done(null, false);
-  //       }
-  //       if(user.validPassport(password)){
-  //         return done(null, false);
-  //       }
-  //       return done(null, newUser);
-  //     });
-  //   });
-  // }
+  function(req, email, passport, done){
+    process.nextTick(function(){
+      User.findOne({"username" : email}, function(err,user){
+        if(err){ 
+          return done(err)
+        }
+        if(user){
+          return done(null, false);
+        }
+        if(user.validPassport(password)){
+          return done(null, false);
+        }
+        return done(null, newUser);
+      });
+    });
+  })
 };

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import LoginForm from "../../components/LoginForm";
+import { HeaderLogin } from "../../components/Header";
 import API from "../../utils/API";
 
 class Login extends Component {
@@ -63,6 +64,8 @@ class Login extends Component {
 
   render() {
     return (
+      <div className="img-container">
+      <HeaderLogin />
       <div className="grid-container">
         <div className="grid-x loginGrid">
           <div className="cell small-offset-3 loginCell">
@@ -92,6 +95,7 @@ class Login extends Component {
           }
           </div>
         </div>
+      </div>
       </div>
     );
   }

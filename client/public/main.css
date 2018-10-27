@@ -123,10 +123,10 @@ div.img-container {
 }
 
 img.header.Login {
-    /* background-image: url(http://breakthroughfitnesshhi.com/wp-content/uploads/Breakthrough-Fitness-Gym-Full-Body-Workout.png); */
+    background-image: url(http://breakthroughfitnesshhi.com/wp-content/uploads/Breakthrough-Fitness-Gym-Full-Body-Workout.png);
     width: 100%;
     height: 20rem;
-    /* background-size: 100% 100%; */
+    background-size: 100% 100%;
 }
 
 div.workouts {

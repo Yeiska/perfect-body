@@ -14,7 +14,7 @@ If user try to login without an account it will show this messaje
 When user login with their account will display the workouts
 ![img app](client/public/img/workout.png)
 
-also user can go to the nutition from the workout page
+also user can go to the nutrition from the workout page
 ![img app](client/public/img/nutrition.png)
 
 The nutrition page give a macrocalculation for the diet to follow
